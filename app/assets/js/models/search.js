@@ -15,25 +15,26 @@ define(['jquery',
     self.next = ko.observable(false);
     self.skip = ko.observable(0);
     self.sortMode = ko.observable('date');
-    
-    self.sortedResult = ko.computed(function() {
-      return self.result().sort(function(lhs, rhs) {
+
+    self.sortedResult = ko.computed(function () {
+      return self.result().sort(function (lhs, rhs) {
         if (self.sortMode() === 'score') {
-          return lhs['@search.score'] === rhs['@search.score'] ? 
+          return lhs['@search.score'] === rhs['@search.score'] ?
             0 :
             lhs['@search.score'] < rhs['@search.score'] ? 1 : -1;
         } else {
-          return lhs.timestamp === rhs.timestamp ? 
+          return lhs.timestamp === rhs.timestamp ?
             0 :
             lhs.timestamp < rhs.timestamp ? 1 : -1;
-        } 
+        }
       });
     });
-    
-    self.q.subscribe(function(v) {
+
+    self.q.subscribe(function (v) {
       self.skip(0);
+      self.result([]);
     });
-    
+
     var target = $('#search')[0];
     var spinner = new Spinner();
 
@@ -45,11 +46,12 @@ define(['jquery',
           spinner.spin(target);
         },
         success: function (data) {
-          self.result(data.value);
+          var array = self.result();
+          self.result(array.concat(data.value));
           if (data['@odata.nextLink']) {
             self.next(true);
             var link = data['@odata.nextLink'];
-            self.skip(link.substr(link.indexOf("skip="))); 
+            self.skip(link.substr(link.indexOf("skip=")));
           } else {
             self.next(false);
             self.skip(0);

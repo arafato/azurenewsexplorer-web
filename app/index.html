@@ -48,21 +48,26 @@
       
       <div class="row">
         <br>
-        <div class="col-lg-6">
+        <div class="col-lg-2">
           <div class="input-group">
             <form data-bind="submit: search.callService">
               <input type="text" class="form-control" placeholder="Search for..." data-bind="value: search.q">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="submit">Go!</button>
-              </span>
+              
             </form>
           </div>
         </div>
+        <div class="col-lg-2">
+          <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+              </span>
+          </div>
       </div>
-
+      <br>
       <div class="row">
-        
-        <div class="col-lg-6">
+        <div class="col-md-1">
+          <b>Sort by</b>
+          </div>
+        <div class="col-md-6">
         <label class="radio-inline">
           <input data-bind="checked: search.sortMode" type="radio" name="inlineRadioOptions" id="sortdate" value="date"> Date
         </label>
