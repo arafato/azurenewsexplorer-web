@@ -6,7 +6,9 @@ require.config({
     'jquery': '../../bower_components/jquery/dist/jquery',
     'sammy': '../../bower_components/sammy/lib/sammy',
     'knockout.validation': '../../bower_components/knockout.validation/Dist/knockout.validation',
-    'jquery.bootstrap': '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap'
+    'jquery.bootstrap': '../../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
+    'spin': '../../bower_components/spin.js/spin',
+
   },
   shim: {
     'jquery.bootstrap': {

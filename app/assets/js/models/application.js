@@ -4,8 +4,10 @@
 define(['jquery',
   'knockout',
   '../../../assets/js/models/nav.js',
-  'knockout.validation'
-], function ($, ko, Nav) {
+  '../../../assets/js/models/search.js',
+  'knockout.validation',
+  '../../../assets/js/environment.js',
+], function ($, ko, Nav, Search) {
   return function () {
     var self = this;
 
@@ -19,5 +21,6 @@ define(['jquery',
     });
 
     self.nav = new Nav();
+    self.search = new Search();
   };
 });

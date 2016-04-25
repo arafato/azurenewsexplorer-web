@@ -13,8 +13,8 @@ define(['jquery',
     ko.applyBindings(vm);
 
     self._sammy = new Sammy(function () {
-      this.get('#home', function () {
-        vm.nav.chosenMainCategory('home');
+      this.get('#search', function () {
+        vm.nav.chosenMainCategory('search');
       });
 
       this.get('#api', function () {
@@ -26,7 +26,7 @@ define(['jquery',
       });
 
       this.get('', function () {
-        this.redirect('#home');
+        this.redirect('#search');
       });
     });
 

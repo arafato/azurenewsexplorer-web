@@ -3,4 +3,5 @@ test
 app/bower_components
 .yo-rc.json
 .sass-cache
+dist
 
