@@ -2,10 +2,10 @@
 
 /* global define:true*/
 define(['jquery',
-    'knockout',
-    '../../../assets/js/models/sammyViewModel.js',
-    'knockout.validation'
-    ], function ($, ko, SammyViewModel) {
+  'knockout',
+  '../../../assets/js/models/nav.js',
+  'knockout.validation'
+], function ($, ko, Nav) {
   return function () {
     var self = this;
 
@@ -18,12 +18,6 @@ define(['jquery',
       errorsAsTitle: false
     });
 
-    // Example observable
-    self.status = ko.observable('active');
-
-    // Add submodels here
-    // Sammy view model for local navigation
-    self.sammy = new SammyViewModel();
-
+    self.nav = new Nav();
   };
 });
