@@ -21,7 +21,7 @@ define(['jquery',
         if (self.sortMode() === 'score') {
           return lhs['@search.score'] === rhs['@search.score'] ? 
             0 :
-            lhs['@search.score'] < rhs['@search.score'] ? -1 : 1;
+            lhs['@search.score'] < rhs['@search.score'] ? 1 : -1;
         } else {
           return lhs.timestamp === rhs.timestamp ? 
             0 :
