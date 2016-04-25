@@ -14,6 +14,21 @@ define(['jquery',
     self.result = ko.observableArray([]);
     self.next = ko.observable(false);
     self.skip = ko.observable(0);
+    self.sortMode = ko.observable('date');
+    
+    self.sortedResult = ko.computed(function() {
+      return self.result().sort(function(lhs, rhs) {
+        if (self.sortMode() === 'score') {
+          return lhs['@search.score'] === rhs['@search.score'] ? 
+            0 :
+            lhs['@search.score'] < rhs['@search.score'] ? -1 : 1;
+        } else {
+          return lhs.timestamp === rhs.timestamp ? 
+            0 :
+            lhs.timestamp < rhs.timestamp ? 1 : -1;
+        } 
+      });
+    });
     
     self.q.subscribe(function(v) {
       self.skip(0);

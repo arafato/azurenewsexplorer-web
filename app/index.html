@@ -45,10 +45,7 @@
           <h1>Explore all Azure News Announcements</h1>
         </div>
       </div>
-      <div class="row">
-        <p class="col-md-6 col-md-offset-3 entry-home alert-success"><span><a href="http://fortawesome.github.io/Font-Awesome">Font Awesome icons </a>are available</span><i class="fa fa-check-square-o"></i></p>
-      </div>
-
+      
       <div class="row">
         <br>
         <div class="col-lg-6">
@@ -64,6 +61,18 @@
       </div>
 
       <div class="row">
+        
+        <div class="col-lg-6">
+        <label class="radio-inline">
+          <input data-bind="checked: search.sortMode" type="radio" name="inlineRadioOptions" id="sortdate" value="date"> Date
+        </label>
+        <label class="radio-inline">
+          <input data-bind="checked: search.sortMode" type="radio" name="inlineRadioOptions" id="sortscore" value="score"> Score
+        </label>
+        </div>
+      </div>
+
+      <div class="row">
         <br>
         <div class="col-md-12">
           <table class="table table-hover">
@@ -74,7 +83,7 @@
                 <th>Category</th>
               </tr>
             </thead>
-            <tbody data-bind="foreach: search.result">
+            <tbody data-bind="foreach: search.sortedResult">
               <tr>
                 <td data-bind="text: date"></td>
                 <td>
