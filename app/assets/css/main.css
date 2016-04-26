@@ -12308,3 +12308,9 @@ body {
 .entry-home i {
   padding-left: 10px;
 }
+
+/* line 19, ../scss/_app.scss */
+em {
+  background-color: #FFFF88;
+  font-style: normal;
+}

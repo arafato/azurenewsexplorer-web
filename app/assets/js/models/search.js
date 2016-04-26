@@ -41,6 +41,15 @@ define(['jquery',
       self.skip(0);
       self.result([]);
     });
+    
+    self.processAbstract = function(data) {
+      for(var i = 0; i < data.length - 1; ++i) {
+        if(data[i]['@search.highlights']) {
+          data[i].abstract = data[i]['@search.highlights'].abstract[0];
+        }
+      }
+      return data;      
+    }
 
     var target = $('#search')[0];
     var spinner = new Spinner();
@@ -53,8 +62,10 @@ define(['jquery',
           spinner.spin(target);
         },
         success: function (data) {
+          data.value = self.processAbstract(data.value);
           var array = self.result();
           self.result(array.concat(data.value));
+                    
           if (data['@odata.nextLink']) {
             self.next(true);
             var link = data['@odata.nextLink'];
