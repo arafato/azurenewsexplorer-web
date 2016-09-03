@@ -62,6 +62,7 @@ define(['jquery',
           spinner.spin(target);
         },
         success: function (data) {
+          data = JSON.parse(data);
           data.value = self.processAbstract(data.value);
           var array = self.result();
           self.result(array.concat(data.value));
